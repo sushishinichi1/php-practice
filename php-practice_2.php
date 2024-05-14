@@ -1,15 +1,15 @@
 <?php
 // Q1 tic-tac問題
 
-for($x=1;$x<=100;$x++){
-    if ($x%4==0 and $x%5==0) {
+for($x = 1; $x <= 100; $x++){
+    if ($x % 4 === 0 and $x % 5 === 0) {
         echo "tictac\n";
-    }elseif ($x%5==0) {
+    }elseif ($x % 5 === 0) {
         echo "tac\n";
-    }elseif($x%4==0){
+    }elseif($x % 4 === 0){
         echo"tic\n";
     }else {
-        echo $x."\n";
+        echo $x . "\n";
     }
 }
 
@@ -17,7 +17,7 @@ for($x=1;$x<=100;$x++){
 // Q2 多次元連想配列
 
 //問題１
-echo $personalInfos[1]['name'] ."の電話番号は" . $personalInfos[1]['tel'];
+echo $personalInfos[1]['name'] ."の電話番号は" . $personalInfos[1]['tel'] . "です。";
 
 //問題２
 
@@ -32,28 +32,37 @@ foreach ($personalInfos as $index => $info) {
 }
 
 // Q3 オブジェクト-1
-public function __construct($id, $name)
-{
-    $this->studentId = $id;
-    $this->studentName = $name;
-    echo '学籍番号' . $this->studentId . '番の生徒は' . $this->studentName . 'です。';
 
+class Student
+{
+    public $studentId;
+    public $studentName;
+
+    public function __construct($id, $name)
+    {
+        $this->studentId = $id;
+        $this->studentName = $name;
+    }
+
+    public function attend($course)
+    {
+        // echo '授業に出席しました。';
+        echo $this->studentName . 'は' . $course . 'の授業に参加しました。学籍番号：' . $this->studentId;
+    }
 }
 
-
 $yamada = new Student(120, '山田');
+echo '学籍番号' .yamada->studentId . '番の生徒は' . yamada->studentName . 'です。';
 
 
 // Q4 オブジェクト-2
-public function attend($course)
-{
-    echo $this->studentName . 'は' . $course . 'の授業に参加しました。学籍番号：' . $this->studentId;
-}
+$tanaka = new Student(121, '田中');
+$tanaka->attend('php');
 
 // Q5 定義済みクラス
 //問１
-$now = new DateTime('-1 month');
-echo $now->format('Y-m-d');
+$last_month = new DateTime('-1 month');
+echo $last_month->format('Y-m-d');
 
 //問２
 
