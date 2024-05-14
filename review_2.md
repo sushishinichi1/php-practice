@@ -11,15 +11,15 @@ for ($i = 0; $i <= 4; $i++) {
 }
 ```
 
-1.
-2.
-3.
-4.
+1.0
+2.1
+3.2
+4.3
 
 ## for 文と foreach はどのように使い分けるのか説明してください。
 
-- for 文は条件が成立するまで繰り返します、
-- foreach 文は指定した文から要素をひとつづつ繰り返す
+- for 文は基本インクリメントして条件が成立するまで繰り返します、
+- foreach 文は配列から順に要素をひとつづつ取り出せる
 
 ## クラスとインスタンスの違いについて説明してください。
 
@@ -53,7 +53,7 @@ public function __construct($id, $name)
 
 ## `DateTime::modify`メソッドの返り値を教えてください。
 
-- modify を使うとメソッドを利用することで１日追加したり日付のタイムスタンプを変更する。
+- 変更された datetime オブジェクトを返し、失敗した場合は false を返す。
 
 ## `DateTime::format`メソッドと`DateInterval::format`メソッドの違いを教えてください。
 
@@ -70,5 +70,9 @@ echo $prev->diff($now)->format('%a')
 
 format('%a')の a は diff の結果に使った場合は総日数であり、
 %は%として出力されます。
+
+php マニュアルで diff を探し dateInterval が返り値だと判明し、
+dateInterval オブジェクトにつく format メソッドを調べると返り値が string
+ということが判明する。
 
 -
